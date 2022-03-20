@@ -4,14 +4,22 @@
     :for="label"
     >{{ label }}</label
   >
-  <input
+  <select
     v-bind="$attrs"
     :id="label"
-    :value="modelValue"
-    :placeholder="label"
-    @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-  />
+    @change="$emit('update:modelValue', ($event.target as HTMLSelectElement).value)"
+  >
+    <option
+      v-for="(option, index) in options"
+      :key="index"
+      :value="option"
+      :selected="option === modelValue"
+    >
+      {{ option }}
+    </option>
+  </select>
 </template>
+
 <script lang="ts">
   import { defineComponent } from 'vue';
 
@@ -25,6 +33,10 @@
       modelValue: {
         type: [String, Number],
         default: '',
+      },
+      options: {
+        type: Array,
+        required: true,
       },
     },
     emits: ['update:modelValue'],

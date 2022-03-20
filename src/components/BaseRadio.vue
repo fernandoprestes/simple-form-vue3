@@ -1,32 +1,33 @@
 <template>
-  <label
-    v-if="label"
-    :for="label"
-    >{{ label }}</label
-  >
   <input
+    type="radio"
+    :checked="modelValue === value"
+    :value="value"
     v-bind="$attrs"
-    :id="label"
-    :value="modelValue"
-    :placeholder="label"
-    @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    @change="$emit('update:modelValue', value)"
   />
+  <label for="">{{ label }}</label>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';
 
   export default defineComponent({
-    name: 'BaseInput',
+    name: 'BaseRadio',
     props: {
       label: {
         type: String,
         default: '',
       },
       modelValue: {
-        type: [String, Number],
+        type: [String, Number, Boolean],
+        default: '',
+      },
+      value: {
+        type: [String, Number, Boolean],
         default: '',
       },
     },
     emits: ['update:modelValue'],
   });
 </script>
+<style lang=""></style>
