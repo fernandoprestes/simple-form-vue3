@@ -9,7 +9,7 @@
     :id="label"
     :value="modelValue"
     :placeholder="label"
-    @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    @input="onInput"
   />
 </template>
 <script lang="ts">
@@ -28,5 +28,10 @@
       },
     },
     emits: ['update:modelValue'],
+    methods: {
+      onInput($event: Event) {
+        this.$emit('update:modelValue', ($event.target as HTMLInputElement).value);
+      },
+    },
   });
 </script>

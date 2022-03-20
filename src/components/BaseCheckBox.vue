@@ -2,7 +2,7 @@
   <input
     type="checkbox"
     :checked="modelValue"
-    @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
+    @change="onCheckBox"
   />
   <label v-if="label">{{ label }}</label>
 </template>
@@ -21,5 +21,10 @@
       },
     },
     emits: ['update:modelValue'],
+    methods: {
+      onCheckBox($event: Event) {
+        this.$emit('update:modelValue', ($event.target as HTMLInputElement).checked);
+      },
+    },
   });
 </script>

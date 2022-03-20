@@ -7,7 +7,7 @@
   <select
     v-bind="$attrs"
     :id="label"
-    @change="$emit('update:modelValue', ($event.target as HTMLSelectElement).value)"
+    @change="onSelected"
   >
     <option
       v-for="(option, index) in options"
@@ -40,5 +40,10 @@
       },
     },
     emits: ['update:modelValue'],
+    methods: {
+      onSelected($event: Event) {
+        this.$emit('update:modelValue', ($event.target as HTMLSelectElement).value);
+      },
+    },
   });
 </script>
