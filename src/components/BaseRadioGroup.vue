@@ -8,12 +8,13 @@
       :label="option.label"
       :value="option.value"
       :model-value="modelValue"
-      @update:modelValue="$emit('update:modelValue', $event)"
+      @update:model-value="$emit('update:modelValue', $event)"
     />
   </div>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';
+  import IOptionRadio from './../types/IOptionRadio';
   import BaseRadio from './BaseRadio.vue';
 
   export default defineComponent({
@@ -29,7 +30,7 @@
         default: '',
       },
       options: {
-        type: Array,
+        type: Array as () => Array<IOptionRadio>,
         required: true,
       },
     },

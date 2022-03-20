@@ -6,7 +6,7 @@
     v-bind="$attrs"
     @change="$emit('update:modelValue', value)"
   />
-  <label for="">{{ label }}</label>
+  <label :for="label">{{ label }}</label>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';

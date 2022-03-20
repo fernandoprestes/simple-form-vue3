@@ -87,6 +87,7 @@
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';
+  import { FormData } from '../types/IForm';
   import BaseCheckBox from './BaseCheckBox.vue';
   import BaseInput from './BaseInput.vue';
   import BaseRadioGroup from './BaseRadioGroup.vue';
@@ -103,25 +104,7 @@
           { label: 'Yes', value: true },
           { label: 'No', value: false },
         ],
-        form: {
-          name: '',
-          email: '',
-          birthday: '',
-          address: '',
-          city: '',
-          uf: '',
-          phone: '',
-          maritalStatus: '',
-          wantReceiveInformation: false,
-          yourInterests: {
-            technology: false,
-            music: false,
-            books: false,
-            movie: false,
-            travel: false,
-          },
-          password: '',
-        },
+        form: { ...FormData },
       };
     },
   });
