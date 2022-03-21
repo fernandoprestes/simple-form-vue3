@@ -25,17 +25,11 @@
       label="Cidade"
       type="text"
     />
-    <BaseInput
-      v-model="form.address"
-      label="Endereço"
-      type="text"
-    />
     <BaseSelect
       v-model="form.uf"
       :options="ufOptions"
       label="Estado"
     />
-    {{ form.uf }}
     <BaseInput
       v-model="form.phone"
       label="Contato"
