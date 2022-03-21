@@ -1,3 +1,6 @@
+import { defineComponent } from 'vue'; import { FormData } from '../types/IForm'; import BaseCheckBox from
+'./BaseCheckBox.vue'; import BaseInput from './BaseInput.vue'; import BaseRadioGroup from './BaseRadioGroup.vue'; import
+BaseSelect from './BaseSelect.vue';
 <template>
   <form class="flex flex-col">
     <BaseInput
@@ -25,17 +28,11 @@
       label="Cidade"
       type="text"
     />
-    <BaseInput
-      v-model="form.address"
-      label="Endereço"
-      type="text"
-    />
     <BaseSelect
       v-model="form.uf"
       :options="ufOptions"
       label="Estado"
     />
-    {{ form.uf }}
     <BaseInput
       v-model="form.phone"
       label="Contato"
